@@ -1,0 +1,66 @@
+name: Build and Publish Artifacts for Release
+
+on:
+  release:
+    types:
+      - created
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    # Step 2: Extract version from release tag
+    - name: Extract version
+      id: extract_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+
+    # Step 3: Set up Java
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17' # Use the same version defined in your build.gradle
+        distribution: 'temurin'
+
+    # Step 4: Cache Gradle dependencies
+    - name: Cache Gradle dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.gradle/caches
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    # Step 5: Update Gradle version dynamically
+    - name: Update Gradle version
+      run: sed -i "s/^version = .*/version = \"${{ env.VERSION }}\"/" build.gradle
+
+    # Step 6: Run Gradle build
+    - name: Build project
+      run: ./gradlew build
+
+    # Step 7: Publish to Maven Local
+    - name: Publish to Maven Local
+      run: ./gradlew publishToMavenLocal
+
+    # Step 8: Copy artifacts to repository directory
+    - name: Copy artifacts to repository directory
+      run: |
+        mkdir -p artifacts
+        cp ~/.m2/repository/frc4068/bearlib/bearlib/${{ env.VERSION }}/* artifacts/
+
+    # Step 9: Commit and push artifacts
+    - name: Commit and push artifacts
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        git add artifacts/
+        git commit -m "Add build artifacts for version ${{ env.VERSION }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
