@@ -9,7 +9,8 @@
     {
       "groupId": "frc4068.bearlib",
       "artifactId": "bearlib",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "file": "https://github.com/bearboticsfrc/bearlib/releases/download/v2025.0.0/bearlib-1.0.0.jar"
     }
   ]
 }
