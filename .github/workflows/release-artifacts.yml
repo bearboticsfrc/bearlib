@@ -39,6 +39,6 @@ jobs:
         git config --local user.email "actions@github.com"
         git add frc4068/bearlib/bearlib/*
         git commit -m "Add build artifacts for version ${{ env.VERSION }}"
-        git push
+        git push origin HEAD:main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
