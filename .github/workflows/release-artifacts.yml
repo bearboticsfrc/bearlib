@@ -13,7 +13,7 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-s
+
     - name: Extract version
       id: extract_version
       run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
