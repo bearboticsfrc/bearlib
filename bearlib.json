@@ -6,7 +6,7 @@
   "mavenUrls": [
     "https://maven.pkg.github.com/bearboticsfrc/bearlib"
   ],
-  "jsonUrl": "https://bearboticsfrc.github.io/bearlib/bearlib.json",
+  "jsonUrl": "ht.\tps://bearboticsfrc.github.io/bearlib/bearlib.json",
   "javaDependencies": [
     {
       "groupId": "frc4068.bearlib",
