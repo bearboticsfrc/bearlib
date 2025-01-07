@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "uuid": "7a5077f9-339e-48cc-9ab0-f48433311280",
   "mavenUrls": [],
-  "jsonUrl": "https://raw.githubusercontent.com/bearboticsfrc/bearlib/refs/heads/main/bearlib.json",
+  "jsonUrl": "https://bearboticsfrc.github.io/bearlib/bearlib.json",
   "javaDependencies": [
     {
       "groupId": "frc4068.bearlib",
