@@ -5,7 +5,7 @@
   "frcYear": "2025",
   "uuid": "7a5077f9-339e-48cc-9ab0-f48433311280",
   "mavenUrls": [
-    "https://maven.pkg.github.com/bearboticsfrc/bearlib"
+    "https://bearboticsfrc.github.io/bearlib"
   ],
   "jsonUrl": "https://bearboticsfrc.github.io/bearlib/bearlib.json",
   "javaDependencies": [
