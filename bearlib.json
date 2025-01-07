@@ -1,16 +1,19 @@
 {
   "fileName": "bearlib.json",
-  "name": "Bearlib",
-  "version": "1.0.0",
+  "name": "bearlib",
+  "version": "2025.0.0",
   "uuid": "7a5077f9-339e-48cc-9ab0-f48433311280",
-  "mavenUrls": [],
+  "mavenUrls": [
+    "https://maven.pkg.github.com/bearboticsfrc/bearlib"
+  ],
   "jsonUrl": "https://bearboticsfrc.github.io/bearlib/bearlib.json",
   "javaDependencies": [
     {
       "groupId": "frc4068.bearlib",
       "artifactId": "bearlib",
-      "version": "1.0.0",
-      "file": "https://github.com/bearboticsfrc/bearlib/releases/download/v2025.0.0/bearlib-1.0.0.jar"
+      "version": "2025.0.0"
     }
-  ]
+  ],
+  "cppDependencies": [],
+  "jniDependencies": []
 }
