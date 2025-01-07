@@ -40,16 +40,11 @@ publishing {
         }
     }
 
-  repositories {
-    maven {
-      name = "GitHubPackages"
-      url = "https://maven.pkg.github.com/bearboticsfrc/bearlib"
-      credentials {
-        username = System.getenv("GITHUB_ACTOR")
-        password = System.getenv("GITHUB_TOKEN")
-      }
+    repositories {
+        maven {
+            url = "${buildDir}/../" 
+        }
     }
-  }
 }
 
 // Configure string concat to always inline compile

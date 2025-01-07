@@ -21,7 +21,7 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
-        java-version: '17' # Use the same version defined in your build.gradle
+        java-version: '17'
         distribution: 'temurin'
 
     - name: Setup Gradle
@@ -30,19 +30,14 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
 
-    - name: Publish to Maven Local
-      run: ./gradlew publishToMavenLocal
-
-    - name: Copy artifacts to repository directory
-      run: |
-        mkdir -p artifacts
-        cp ~/.m2/repository/frc4068/bearlib/bearlib/${{ env.VERSION }}/* artifacts/
+    - name: Publish
+      run: ./gradlew publish
 
     - name: Commit and push artifacts
       run: |
         git config --local user.name "GitHub Actions"
         git config --local user.email "actions@github.com"
-        git add artifacts/
+        git add frc4068/bearlib/bearlib/*
         git commit -m "Add build artifacts for version ${{ env.VERSION }}"
         git push
       env:
