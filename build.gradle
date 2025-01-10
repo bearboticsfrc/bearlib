@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "frc4068.bearlib"
-version = "2025.0.2"
+version = "2025.1.0"
 
 repositories {
     mavenCentral()
@@ -23,6 +23,12 @@ dependencies {
 
     // https://mvnrepository.com/artifact/gov.nist.math/jama
     implementation group: "gov.nist.math", name: "jama", version: "1.0.3"
+
+    // https://github.com/FasterXML/jackson-databind
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.18.2"
+
+    // https://github.com/FasterXML/jackson-datatypes-misc
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.15.2'
 }
 
 java {
