@@ -63,8 +63,9 @@ public class MotorParser {
      * @param filePath the relative path to the motor configuration file.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
-    public void withMotor(String filePath) throws IOException {
+    public MotorParser withMotor(String filePath) throws IOException {
         this.motor = jsonMapper.readValue(getFile(filePath), Motor.class);
+        return this;
     }
 
     /**
@@ -74,8 +75,9 @@ public class MotorParser {
      * @param filePath the relative path to the encoder configuration file.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
-    public void withEncoder(String filePath) throws IOException {
+    public MotorParser withEncoder(String filePath) throws IOException {
         this.encoder = jsonMapper.readValue(getFile(filePath), Encoder.class);
+        return this;
     }
 
     /**
@@ -88,12 +90,14 @@ public class MotorParser {
      *                                        parsing the file.
      * @throws ArrayIndexOutOfBoundsException if the slot index is out of bounds.
      */
-    public void withPidf(String filePath, int slot) throws IOException {
+    public MotorParser withPidf(String filePath, int slot) throws IOException {
         if (slot < 0 || slot >= pidfs.length) {
             throw new ArrayIndexOutOfBoundsException("Invalid PIDF slot: " + slot);
         }
 
         this.pidfs[slot] = jsonMapper.readValue(getFile(filePath), Pidf.class);
+
+        return this;
     }
 
     /**
@@ -103,8 +107,9 @@ public class MotorParser {
      * @param filePath the relative path to the PIDF configuration file.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
-    public void withPidf(String filePath) throws IOException {
+    public MotorParser withPidf(String filePath) throws IOException {
         withPidf(filePath, 0);
+        return this;
     }
 
     /**
@@ -124,6 +129,12 @@ public class MotorParser {
         }
 
         for (int slot = 0; slot < pidfs.length; slot++) {
+            Pidf pidf = pidfs[slot];
+
+            if (pidf == null) {
+                continue;
+            }
+
             motorConfigurator.withPidf(pidfs[slot], slot);
         }
 
