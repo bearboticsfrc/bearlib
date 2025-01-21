@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Motor {
 
     /**
-     * The type of motor (e.g., Spark, Falcon, etc.).
+     * The type of motor (e.g., max, flex).
      */
     public SparkType type;
 
