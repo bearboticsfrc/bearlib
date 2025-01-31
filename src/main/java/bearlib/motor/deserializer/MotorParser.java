@@ -61,6 +61,7 @@ public class MotorParser {
      * Loads and parses a motor configuration file into a {@link Motor} object.
      *
      * @param filePath the relative path to the motor configuration file.
+     * @return This {@link MotorParser} instance for method chaining.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
     public MotorParser withMotor(String filePath) throws IOException {
@@ -73,6 +74,7 @@ public class MotorParser {
      * object.
      *
      * @param filePath the relative path to the encoder configuration file.
+     * @return This {@link MotorParser} instance for method chaining.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
     public MotorParser withEncoder(String filePath) throws IOException {
@@ -86,6 +88,7 @@ public class MotorParser {
      *
      * @param filePath the relative path to the PIDF configuration file.
      * @param slot     the slot to store the PIDF object.
+     * @return This {@link MotorParser} instance for method chaining.
      * @throws IOException                    if an error occurs while reading or
      *                                        parsing the file.
      * @throws ArrayIndexOutOfBoundsException if the slot index is out of bounds.
@@ -105,6 +108,7 @@ public class MotorParser {
      * 0).
      *
      * @param filePath the relative path to the PIDF configuration file.
+     * @return This {@link MotorParser} instance for method chaining.
      * @throws IOException if an error occurs while reading or parsing the file.
      */
     public MotorParser withPidf(String filePath) throws IOException {
@@ -115,7 +119,7 @@ public class MotorParser {
     /**
      * Configures the motor and associated components using the parsed data.
      *
-     * @return a fully configured {@link MotorConfigurator}.
+     * @return a fully configured {@link ConfiguredMotor}.
      */
     public ConfiguredMotor configure() {
         if (motor == null) {
