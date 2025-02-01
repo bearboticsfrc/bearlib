@@ -52,6 +52,12 @@ public class Motor {
     private List<SoftLimit> softLimits;
 
     /**
+     * A list of hard limits for the motor's movement.
+     */
+    @JsonProperty("hard_limits")
+    private List<HardLimit> hardLimits;
+
+    /**
      * The leader configuration for the motor, if applicable.
      */
     private MotorLeader leader;
@@ -152,6 +158,30 @@ public class Motor {
             throw new IllegalArgumentException("Soft limits list must contain fewer than 3 elements.");
         }
         this.softLimits = softLimits;
+    }
+
+    /**
+     * Gets the hard limits for the motor.
+     *
+     * @return an {@link Optional} containing a list of hard limits, or empty if not
+     *         set
+     */
+    public Optional<List<HardLimit>> getHardLimits() {
+        return Optional.ofNullable(hardLimits);
+    }
+
+    /**
+     * Sets the hard limits for the motor. Ensures the list contains fewer than 3
+     * elements.
+     *
+     * @param hardLimits the list of hard limits to set
+     * @throws IllegalArgumentException if the list contains more than 2 elements
+     */
+    public void setHardLimits(List<HardLimit> hardLimits) {
+        if (hardLimits.size() >= 3) {
+            throw new IllegalArgumentException("Hard limits list must contain fewer than 3 elements.");
+        }
+        this.hardLimits = hardLimits;
     }
 
     /**

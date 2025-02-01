@@ -12,7 +12,7 @@ public class SoftLimit {
     /**
      * The direction of the soft limit (e.g., forward or reverse).
      */
-    public SoftLimitDirection direction;
+    public LimitDirection direction;
 
     /**
      * The positional limit in the specified direction.

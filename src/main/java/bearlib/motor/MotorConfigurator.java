@@ -18,6 +18,7 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 import bearlib.motor.deserializer.models.encoder.ConversionFactor;
 import bearlib.motor.deserializer.models.encoder.Encoder;
 import bearlib.motor.deserializer.models.encoder.EncoderType;
+import bearlib.motor.deserializer.models.motor.HardLimit;
 import bearlib.motor.deserializer.models.motor.IdleModeType;
 import bearlib.motor.deserializer.models.motor.Motor;
 import bearlib.motor.deserializer.models.motor.MotorLeader;
@@ -53,6 +54,7 @@ public class MotorConfigurator {
     motor.getNominalVoltage().ifPresent(config::voltageCompensation);
     motor.getCurrentLimit().ifPresent(config::smartCurrentLimit);
     motor.getSoftLimits().ifPresent(this::configureSoftLimits);
+    motor.getHardLimits().ifPresent(this::configureHardLimits);
     motor.getLeader().ifPresent(this::configureMotorLeader);
 
     return this;
@@ -89,6 +91,31 @@ public class MotorConfigurator {
           config.softLimit.reverseSoftLimit(softLimit.limit);
         }
         default -> throw new IllegalArgumentException("Unsupported soft limit direction: " + softLimit.direction);
+      }
+    }
+  }
+
+  /**
+   * Configures hard limits for the motor.
+   *
+   * @param hardLimits a list of {@link HardLimit} dataclasses specifying forward
+   *                   and
+   *                   reverse limits
+   * @throws IllegalArgumentException if an unsupported hard limit direction is
+   *                                  encountered
+   */
+  private void configureHardLimits(List<HardLimit> hardLimits) {
+    for (HardLimit hardLimit : hardLimits) {
+      switch (hardLimit.direction) {
+        case FORWARD -> {
+          config.limitSwitch.forwardLimitSwitchEnabled(true);
+          config.limitSwitch.forwardLimitSwitchType(hardLimit.type.getType());
+        }
+        case REVERSE -> {
+          config.limitSwitch.reverseLimitSwitchEnabled(true);
+          config.limitSwitch.reverseLimitSwitchType(hardLimit.type.getType());
+        }
+        default -> throw new IllegalArgumentException("Unsupported hard limit direction: " + hardLimit.direction);
       }
     }
   }
