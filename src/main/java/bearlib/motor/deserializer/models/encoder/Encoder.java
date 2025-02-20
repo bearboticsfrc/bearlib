@@ -10,12 +10,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Encoder {
-
-  /**
-   * The type of encoder (e.g., absolute or relative).
-   */
-  public EncoderType type;
-
   /**
    * Indicates whether the encoder is inverted.
    */

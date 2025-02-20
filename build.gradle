@@ -1,11 +1,11 @@
 plugins {
     id "java"
     id "maven-publish"
-    id "edu.wpi.first.GradleRIO" version "2025.1.1"
+    id "edu.wpi.first.GradleRIO" version "2025.3.1"
 }
 
 group = "frc4068.bearlib"
-version = "2025.2.0"
+version = "2025.2.1"
 
 repositories {
     mavenCentral()

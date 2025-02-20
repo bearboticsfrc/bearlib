@@ -17,13 +17,12 @@ public enum HardLimitType {
      */
     CLOSED(LimitSwitchConfig.Type.kNormallyClosed);
 
-    private final LimitSwitchConfig.Type type;
+    /**
+     * The underlying {@link LimitSwitchConfig.Type} value.
+     */
+    public final LimitSwitchConfig.Type value;
 
     private HardLimitType(LimitSwitchConfig.Type type) {
-      this.type = type;
-    }
-
-    public LimitSwitchConfig.Type getType() {
-      return type;
+      this.value = type;
     }
 }

@@ -2,8 +2,6 @@ package bearlib.motor;
 
 import java.util.List;
 
-import com.revrobotics.AbsoluteEncoder;
-import com.revrobotics.RelativeEncoder;
 import com.revrobotics.spark.ClosedLoopSlot;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkBase.PersistMode;
@@ -17,7 +15,6 @@ import com.revrobotics.spark.config.SparkMaxConfig;
 
 import bearlib.motor.deserializer.models.encoder.ConversionFactor;
 import bearlib.motor.deserializer.models.encoder.Encoder;
-import bearlib.motor.deserializer.models.encoder.EncoderType;
 import bearlib.motor.deserializer.models.motor.HardLimit;
 import bearlib.motor.deserializer.models.motor.IdleModeType;
 import bearlib.motor.deserializer.models.motor.Motor;
@@ -35,8 +32,6 @@ import bearlib.motor.deserializer.models.pidf.PositionWrapping;
 public class MotorConfigurator {
   private SparkBaseConfig config;
   private SparkBase spark;
-  private RelativeEncoder relativeEncoder;
-  private AbsoluteEncoder absoluteEncoder;
 
   /**
    * Configures the motor..
@@ -109,11 +104,11 @@ public class MotorConfigurator {
       switch (hardLimit.direction) {
         case FORWARD -> {
           config.limitSwitch.forwardLimitSwitchEnabled(true);
-          config.limitSwitch.forwardLimitSwitchType(hardLimit.type.getType());
+          config.limitSwitch.forwardLimitSwitchType(hardLimit.type.value);
         }
         case REVERSE -> {
           config.limitSwitch.reverseLimitSwitchEnabled(true);
-          config.limitSwitch.reverseLimitSwitchType(hardLimit.type.getType());
+          config.limitSwitch.reverseLimitSwitchType(hardLimit.type.value);
         }
         default -> throw new IllegalArgumentException("Unsupported hard limit direction: " + hardLimit.direction);
       }
@@ -151,27 +146,11 @@ public class MotorConfigurator {
    * @throws IllegalArgumentException if the encoder type is unsupported
    */
   public MotorConfigurator withEncoder(Encoder encoder) {
-    setEncoder(encoder.type);
-
     encoder.getInverted().ifPresent(config.encoder::inverted);
-    encoder.getInitialPosition().ifPresent(relativeEncoder::setPosition);
+    encoder.getInitialPosition().ifPresent(spark.getEncoder()::setPosition);
     encoder.getConversionFactor().ifPresent(this::configureConversionFactor);
 
     return this;
-  }
-
-  /**
-   * Sets the encoder type for the motor.
-   *
-   * @param type the {@link EncoderType} of the encoder
-   * @throws IllegalArgumentException if the encoder type is unsupported
-   */
-  private void setEncoder(EncoderType type) {
-    switch (type) {
-      case RELATIVE -> relativeEncoder = spark.getEncoder();
-      case ABSOLUTE -> absoluteEncoder = spark.getAbsoluteEncoder();
-      default -> throw new IllegalArgumentException("Unsupported EncoderType: " + type);
-    }
   }
 
   /**
@@ -230,13 +209,13 @@ public class MotorConfigurator {
   }
 
   /**
-   * Applies the motor configuration and returns a {@link ConfiguredMotor}
+   * Applies the motor configuration asynchronously and returns a {@link SparkBase}
    * instance.
    *
-   * @return the configured motor with its associated encoders
+   * @return the configured motor
    */
-  public ConfiguredMotor configure() {
+  public SparkBase configureAsync() {
     spark.configureAsync(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
-    return new ConfiguredMotor(spark, relativeEncoder, absoluteEncoder);
+    return spark;
   }
 }

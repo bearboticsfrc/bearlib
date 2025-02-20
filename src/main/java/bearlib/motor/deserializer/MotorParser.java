@@ -7,8 +7,8 @@ import java.util.Optional;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
+import com.revrobotics.spark.SparkBase;
 
-import bearlib.motor.ConfiguredMotor;
 import bearlib.motor.MotorConfigurator;
 import bearlib.motor.deserializer.models.encoder.Encoder;
 import bearlib.motor.deserializer.models.motor.Motor;
@@ -119,9 +119,9 @@ public class MotorParser {
     /**
      * Configures the motor and associated components using the parsed data.
      *
-     * @return a fully configured {@link ConfiguredMotor}.
+     * @return a fully configured {@link SparkBase}.
      */
-    public ConfiguredMotor configure() {
+    public SparkBase configureAsync() {
         if (motor == null) {
             throw new IllegalStateException("Motor was not set before attempting to configure.");
         }
@@ -142,6 +142,6 @@ public class MotorParser {
             motorConfigurator.withPidf(pidfs[slot], slot);
         }
 
-        return motorConfigurator.configure();
+        return motorConfigurator.configureAsync();
     }
 }
