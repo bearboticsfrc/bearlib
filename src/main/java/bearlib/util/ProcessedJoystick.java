@@ -1,5 +1,7 @@
 package bearlib.util;
 
+import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
+import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
 
@@ -13,7 +15,7 @@ public class ProcessedJoystick {
   /** 
    * The Xbox controller providing the joystick input. 
    */
-  private final CommandXboxController joystick;
+  private final CommandGenericHID joystick;
 
   /** 
    * Supplier function providing the current throttle profile. 
@@ -26,6 +28,11 @@ public class ProcessedJoystick {
   private final double maxVelocity;
 
   /**
+   * Internal boolean for getting axis depending on controller type.
+   */
+  private final boolean isXbox;
+
+  /**
    * Constructs a new {@code ProcessedJoystick} object.
    *
    * @param joystick The {@link CommandXboxController} from which joystick inputs are read.
@@ -34,10 +41,11 @@ public class ProcessedJoystick {
    * @param maxVelocity The maximum velocity used to scale the joystick input.
    */
   public ProcessedJoystick(
-      CommandXboxController joystick, Supplier<ThrottleProfile> throttleProfile, double maxVelocity) {
+      CommandGenericHID joystick, Supplier<ThrottleProfile> throttleProfile, double maxVelocity) {
     this.joystick = joystick;
     this.throttleProfileSupplier = throttleProfile;
     this.maxVelocity = maxVelocity;
+    this.isXbox = joystick instanceof CommandPS4Controller;
   }
 
   /**
@@ -51,20 +59,21 @@ public class ProcessedJoystick {
    * @return The processed input value, adjusted based on the current {@link ThrottleProfile}.
    */
   public double get(JoystickAxis axis) {
+    int rawAxis = isXbox ? axis.getXboxRawAxis() : axis.getPS4RawAxis();
     double rawInput;
 
     switch (axis) {
       case Ly:
-        rawInput = joystick.getLeftY();
+        rawInput = joystick.getRawAxis(rawAxis);
         break;
       case Lx:
-        rawInput = joystick.getLeftX();
+        rawInput = joystick.getRawAxis(rawAxis);
         break;
       case Ry:
-        rawInput = joystick.getRightY();
+        rawInput = joystick.getRawAxis(rawAxis);
         break;
       case Rx:
-        rawInput = joystick.getRightX();
+        rawInput = joystick.getRawAxis(rawAxis);
         break;
       default:
         rawInput = 0;
@@ -82,16 +91,42 @@ public class ProcessedJoystick {
    */
   public enum JoystickAxis {
     /** Left Y-axis (up-down movement of the left joystick). */
-    Ly,
+    Ly(1, 1),
 
     /** Left X-axis (left-right movement of the left joystick). */
-    Lx,
+    Lx(0, 0),
 
     /** Right Y-axis (up-down movement of the right joystick). */
-    Ry,
+    Ry(5, 5),
 
     /** Right X-axis (left-right movement of the right joystick). */
-    Rx;
+    Rx(4, 2);
+
+    private final int xboxRawAxis;
+    private final int PS4RawAxis;
+
+    private JoystickAxis(int xboxRawAxis, int PS4RawAxis) {
+      this.xboxRawAxis = xboxRawAxis;
+      this.PS4RawAxis = PS4RawAxis;
+    }
+
+    /**
+     * Gets the raw axis for an Xbox controller.
+     * 
+     * @return The raw axis.
+     */
+    public int getXboxRawAxis() {
+      return xboxRawAxis;
+    }
+
+    /**
+     * Gets the raw axis for a PS4 controller.
+     * 
+     * @return The raw axis.
+     */
+    public int getPS4RawAxis() {
+      return PS4RawAxis;
+    }
   }
 
   /**
