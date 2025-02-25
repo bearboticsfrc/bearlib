@@ -1,0 +1,256 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "frc4068.bearlib",
+    "module": "bearlib",
+    "version": "2025.2.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.11"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "bearlib-2025.2.3.jar",
+          "url": "bearlib-2025.2.3.jar",
+          "size": 38348,
+          "sha512": "2544866ac3a11e877cf3c372e5f484ea66e6f4f16c62411eb4631a7f5feb6678847f43ad2f320d906389f1b4a61991f972b08ae070d386b0b70e3a0ffca557fb",
+          "sha256": "aff5443f9a877f63e5832fa95c4dda7899981b48fad9e53c2e7737955a4c8ac0",
+          "sha1": "b887b610967b011cfbe5d118eb9e9627475c48d5",
+          "md5": "fe960a4954c2c6acca73ef389ee6d97a"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "edu.wpi.first.wpilibj",
+          "module": "wpilibj-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpimath",
+          "module": "wpimath-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.ntcore",
+          "module": "ntcore-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cscore",
+          "module": "cscore-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.cameraserver",
+          "module": "cameraserver-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.hal",
+          "module": "hal-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpinet",
+          "module": "wpinet-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpiutil",
+          "module": "wpiutil-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.apriltag",
+          "module": "apriltag-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpiunits",
+          "module": "wpiunits-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.epilogue",
+          "module": "epilogue-runtime-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "edu.wpi.first.thirdparty.frc2025.opencv",
+          "module": "opencv-java",
+          "version": {
+            "requires": "4.10.0-3"
+          }
+        },
+        {
+          "group": "org.ejml",
+          "module": "ejml-simple",
+          "version": {
+            "requires": "0.43.1"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-annotations",
+          "version": {
+            "requires": "2.15.2"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-core",
+          "version": {
+            "requires": "2.15.2"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.15.2"
+          }
+        },
+        {
+          "group": "us.hebi.quickbuf",
+          "module": "quickbuf-runtime",
+          "version": {
+            "requires": "1.3.3"
+          }
+        },
+        {
+          "group": "edu.wpi.first.wpilibNewCommands",
+          "module": "wpilibNewCommands-java",
+          "version": {
+            "requires": "2025.3.1"
+          }
+        },
+        {
+          "group": "com.revrobotics.frc",
+          "module": "REVLib-java",
+          "version": {
+            "requires": "2025.0.2"
+          }
+        },
+        {
+          "group": "gov.nist.math",
+          "module": "jama",
+          "version": {
+            "requires": "1.0.3"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.18.2"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.datatype",
+          "module": "jackson-datatype-jdk8",
+          "version": {
+            "requires": "2.15.2"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "bearlib-2025.2.3.jar",
+          "url": "bearlib-2025.2.3.jar",
+          "size": 38348,
+          "sha512": "2544866ac3a11e877cf3c372e5f484ea66e6f4f16c62411eb4631a7f5feb6678847f43ad2f320d906389f1b4a61991f972b08ae070d386b0b70e3a0ffca557fb",
+          "sha256": "aff5443f9a877f63e5832fa95c4dda7899981b48fad9e53c2e7737955a4c8ac0",
+          "sha1": "b887b610967b011cfbe5d118eb9e9627475c48d5",
+          "md5": "fe960a4954c2c6acca73ef389ee6d97a"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "bearlib-2025.2.3-sources.jar",
+          "url": "bearlib-2025.2.3-sources.jar",
+          "size": 28074,
+          "sha512": "a4bc236f5292049f6ba9b4485f56d7c56226099179bb2060a5210dbae28bc33944521f3c83ef8a9a1efa07293d6f2805d83ad78939011072bb271a84f9bfac01",
+          "sha256": "dda07d8eec6175bb7d694102db517fc61ce5513c06788480f8bea4a6690506da",
+          "sha1": "d4f2cb7e12cf1eb68960aa321fb0945059149c54",
+          "md5": "53795cc18b06ccfe1c180808f475ec3a"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "bearlib-2025.2.3-javadoc.jar",
+          "url": "bearlib-2025.2.3-javadoc.jar",
+          "size": 223137,
+          "sha512": "f838a08b089bae30e302c563ab36b72ee7ee2412805bbfda64116c0cfa13c21dee1c7c9da2eab3ae08532bef4b3a5837263618c6f6f1ca4157039fb001ba2171",
+          "sha256": "fff3aa4127b0e112cbc9da441c826ede30e32938c3e27b95911370d08ada325f",
+          "sha1": "4691ae0a2664486969c0d227536dc3844cf5ad14",
+          "md5": "8aaf085bdf656a58b38d8152058434be"
+        }
+      ]
+    }
+  ]
+}
