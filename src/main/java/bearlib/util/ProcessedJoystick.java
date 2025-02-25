@@ -1,7 +1,6 @@
 package bearlib.util;
 
 import edu.wpi.first.wpilibj2.command.button.CommandGenericHID;
-import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import java.util.function.Supplier;
 
@@ -45,7 +44,7 @@ public class ProcessedJoystick {
     this.joystick = joystick;
     this.throttleProfileSupplier = throttleProfile;
     this.maxVelocity = maxVelocity;
-    this.isXbox = joystick instanceof CommandPS4Controller;
+    this.isXbox = joystick instanceof CommandXboxController;
   }
 
   /**
@@ -60,27 +59,9 @@ public class ProcessedJoystick {
    */
   public double get(JoystickAxis axis) {
     int rawAxis = isXbox ? axis.getXboxRawAxis() : axis.getPS4RawAxis();
-    double rawInput;
-
-    switch (axis) {
-      case Ly:
-        rawInput = joystick.getRawAxis(rawAxis);
-        break;
-      case Lx:
-        rawInput = joystick.getRawAxis(rawAxis);
-        break;
-      case Ry:
-        rawInput = joystick.getRawAxis(rawAxis);
-        break;
-      case Rx:
-        rawInput = joystick.getRawAxis(rawAxis);
-        break;
-      default:
-        rawInput = 0;
-    }
 
     // Adjust the raw input based on the throttle profile's max velocity
-    return -(rawInput * throttleProfileSupplier.get().getMaxVelocity(maxVelocity));
+    return -(joystick.getRawAxis(rawAxis) * throttleProfileSupplier.get().getMaxVelocity(maxVelocity));
   }
 
   /**
