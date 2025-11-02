@@ -12,7 +12,6 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 
 /** Manages a number value published to the root table of NT. */
 public class NetworkNumber {
-  private final String key;
   private final DoubleEntry entry;
   private double defaultValue = 0.0;
   private double value;
@@ -24,7 +23,6 @@ public class NetworkNumber {
    *     "/DashboardInputs/{key}" when logged.
    */
   public NetworkNumber(String key) {
-    this.key = key;
     this.entry = NetworkTableInstance.getDefault().getDoubleTopic(key).getEntry(0.0);
     this.value = defaultValue;
   }
