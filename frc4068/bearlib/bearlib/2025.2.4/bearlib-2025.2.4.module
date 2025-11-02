@@ -28,10 +28,10 @@
           "name": "bearlib-2025.2.4.jar",
           "url": "bearlib-2025.2.4.jar",
           "size": 40120,
-          "sha512": "51ad0f7a58dcbe3b9105569cfc40518357debd324ac6936d358e5128a2b47b5f1114ca4aff78275739f12ca1daae817da4ef0ecb7d4e4be35eb2c960192da47e",
-          "sha256": "7f6b085e4d3b6e7f13458b6d57b92ae033694ff9e9f3690f6b4f9b5a9719c92b",
-          "sha1": "734c528eca4093a467ef05d053abec0415202b96",
-          "md5": "c09690147f6cb80d17601c2262119eee"
+          "sha512": "cef99a6b1a9fa8f2d61e3ad95c48f5ced92a1b4c93fcb2851ae725b7a0f4b86cd4eaf7cfaa7d8b9df2807127155ca9f89ad43fbbfc7e380395d714447d8ae227",
+          "sha256": "40d5d6a50824fd05b2765dcfe3cd0b019ab3eba36bb781e93db66dbab0d6122a",
+          "sha1": "1f4b2dd355011bcb6b2740896b34ccf908e4f433",
+          "md5": "e0a6b9c9e8fd34905e8242c7f64fc80c"
         }
       ]
     },
@@ -205,10 +205,10 @@
           "name": "bearlib-2025.2.4.jar",
           "url": "bearlib-2025.2.4.jar",
           "size": 40120,
-          "sha512": "51ad0f7a58dcbe3b9105569cfc40518357debd324ac6936d358e5128a2b47b5f1114ca4aff78275739f12ca1daae817da4ef0ecb7d4e4be35eb2c960192da47e",
-          "sha256": "7f6b085e4d3b6e7f13458b6d57b92ae033694ff9e9f3690f6b4f9b5a9719c92b",
-          "sha1": "734c528eca4093a467ef05d053abec0415202b96",
-          "md5": "c09690147f6cb80d17601c2262119eee"
+          "sha512": "cef99a6b1a9fa8f2d61e3ad95c48f5ced92a1b4c93fcb2851ae725b7a0f4b86cd4eaf7cfaa7d8b9df2807127155ca9f89ad43fbbfc7e380395d714447d8ae227",
+          "sha256": "40d5d6a50824fd05b2765dcfe3cd0b019ab3eba36bb781e93db66dbab0d6122a",
+          "sha1": "1f4b2dd355011bcb6b2740896b34ccf908e4f433",
+          "md5": "e0a6b9c9e8fd34905e8242c7f64fc80c"
         }
       ]
     },
@@ -225,10 +225,10 @@
           "name": "bearlib-2025.2.4-sources.jar",
           "url": "bearlib-2025.2.4-sources.jar",
           "size": 29341,
-          "sha512": "e3aec23174f4213e7d7f9309de2b79e7b95cb357bdaa09747148049932ae0a5a08db029d7dee9e37e5f588687583da83bd852799d9ba8c74873b9222c83fb88b",
-          "sha256": "e77b17f188c35afe2e90f77a51c896362d0f027edfb4b2e938509df88128cf3f",
-          "sha1": "8b04d681521b7dc1d7d941c59a4bcb7650fb5cf0",
-          "md5": "c8a6ebeb3fc868846d2eb5e058195a39"
+          "sha512": "66c99270ad52fc236cd80fba94f24c6eb8b4e58b18a992cfd901f7a181a0d13ab77c3effcb73da252f080a817ab94418ed1497cb5f96894757252515037ab8a9",
+          "sha256": "5fdc1fc810411c4537cda8f54b07f45ba00f9ba2fa10ec94dbf3020d9ab7996e",
+          "sha1": "aa3d7298de59982ef0169697420681ecf27d3a2d",
+          "md5": "be4cf5bffe66c5b3fa19af20222bcb89"
         }
       ]
     },
@@ -245,10 +245,10 @@
           "name": "bearlib-2025.2.4-javadoc.jar",
           "url": "bearlib-2025.2.4-javadoc.jar",
           "size": 227088,
-          "sha512": "3746368fa97e5a41a3c497d89b2b4eaf667101837b23a1d2198f9e097b7e003fc85835c26141e3d1e94327cde66e42aad0933e06f9283ae8daffd7cd12dfa298",
-          "sha256": "42c0b4a17cecfc89d9101e4135f2f032436697f5bc86602a58b28d0caabcad20",
-          "sha1": "3b9895d045b23979ffcbf642eccf8b0ea4ca26a2",
-          "md5": "e85d3e55c1d7bbe683d5cb19636a1923"
+          "sha512": "188761ca81ca4acbb49ac0c77dc1e0dfb537824f46e9603933c05da0cc783fdf520403d9c061c055b3cc4ad5aee631fa3fd77d73918bf9a682453fb7a333cdc3",
+          "sha256": "4ea4e494082aad011a596ebcce8848af13c7c4f4f399b703e74530a20259811c",
+          "sha1": "fdfcd488aafbf00f989e5e6981eb37f796e82400",
+          "md5": "5f9253e3262d14201508650c7cb906e3"
         }
       ]
     }
