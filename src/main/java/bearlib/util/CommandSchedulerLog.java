@@ -76,11 +76,11 @@ public class CommandSchedulerLog
      * <p>Note that use of the DataLog creates SmartDashboard/ShuffleBoard entries but are not the same
      * as use of the ShuffleBoardLog. The ShuffleBoardLog has event markers independent of the DataLog.
      * 
-     * @param useConsole
-     * @param useDataLog
-     * @param useShuffleBoardLog
+     * @param useConsole log to console
+     * @param useDataLog log to the datalog
+     * @param useShuffleBoardLog log to nt
      */ 
-    CommandSchedulerLog(boolean useConsole, boolean useDataLog, boolean useShuffleBoardLog)
+    public CommandSchedulerLog(boolean useConsole, boolean useDataLog, boolean useShuffleBoardLog)
     {
         m_useConsole = useConsole;
         m_useDataLog = useDataLog;
